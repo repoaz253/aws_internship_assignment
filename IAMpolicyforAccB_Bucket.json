@@ -4,14 +4,13 @@
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam:::role/your-role-name-in-aws1"
+                "AWS": "arn:aws:iam::839883xxxxx:policy/accessaccounts3bucket"
             },
             "Action": [
                 "s3:GetObject",
-                "s3:PutObject",
-                "s3:PutObjectAcl"
+                "s3:PutObject"
             ],
-            "Resource": "arn:aws:s3:::your-bucket-name/*"
+            "Resource": "arn:aws:s3:::awsTargetBucketB/*"
         }
     ]
   }

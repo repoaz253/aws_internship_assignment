@@ -3,10 +3,10 @@ import botocore
 #boto3 is AWS SDK for aws services to interact with Python
 
 def lambda_handler(event, context):
-    source_bucket = 'awsSourceBucketA'  
+    source_bucket = 'awssourcebucketA'  
     source_key = 'objectkeyawsSourceBucketA'      
     target_bucket = 'awsTargetBucketB'  
-    target_key = 'objectkeyawsTargetBucketB'     
+    target_key = 'objectkeyawstargetbucketB'     
 
     s3_source = boto3.client('s3', region_name='us-east-1', aws_access_key_id='objectkeyawsSourceBucketAid', aws_secret_access_key='objectkeyawsSourceBucketA')
     s3_target = boto3.client('s3', region_name='us-east-1', aws_access_key_id='objectkeyawsTargetBucketBid', aws_secret_access_key='objectkeyawsTargetBucketB')
