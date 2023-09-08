@@ -1,5 +1,4 @@
 import boto3
-import botocore
 #boto3 is AWS SDK for aws services to interact with Python
 
 def lambda_handler(event, context):
