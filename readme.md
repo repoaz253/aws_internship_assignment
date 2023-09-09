@@ -1,7 +1,25 @@
-1. Create s3 Buckets in both the Accounts
+# Create two acconuts AccountA and AccountB 
+AccountA has awssourcebucketa and AccountB has awstargetbucketb
+
+# S3 bucket access from AccountB 
+
+In Account B, we need to create an IAM role that allows cross-account access to the S3 bucket. 
+Name this role as Allow_access_to_accountA
+Attach allowaccesstoaccountA_permision.json under policies and edit the trust relationship with trustrelation.json
+
+<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/eb3f2372-689d-453c-9bdb-edf1558fcbcf">
+
+<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/59ccc912-4bbc-497b-b6de-0e6cd1b61699">
 
 
-2.Create the IAM role to access S3 Bucket in same account 
+
+
+
+
+## Create s3 Buckets in both the Accounts
+
+
+## Create the IAM role to access S3 Bucket in same account 
 a. Create policy to access s3 bucket in same account 
 <img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/55407d54-f6b3-489b-87ff-5ac7aa0895ff">
 
