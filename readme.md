@@ -1,16 +1,32 @@
-# Create two acconuts AccountA and AccountB 
+## Create two acconuts AccountA and AccountB 
 AccountA has awssourcebucketa and AccountB has awstargetbucketb
 
-# S3 bucket access from AccountB 
+## S3 bucket access from AccountB 
 
 In Account B, we need to create an IAM role that allows cross-account access to the S3 bucket. 
 Name this role as Allow_access_to_accountA
-Attach allowaccesstoaccountA_permision.json under policies and edit the trust relationship with trustrelation.json
+Go to IAM>Roles>Create role
+Under Selected trusted entity select aws account
+Attach permission for amazons3fullaccess and after creation under policies and edit the trust relationship with trustrelation.json
 
 <img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/eb3f2372-689d-453c-9bdb-edf1558fcbcf">
 
 <img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/59ccc912-4bbc-497b-b6de-0e6cd1b61699">
 
+ Create a Role in accountA 
+
+Go to IAM>Roles>Create role
+Under Selected trusted entity select aws service
+Select service as lambda
+Under persmision add s3access and name the role as lambdaroletoaccessaccountb_bucket
+
+<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/fd7f1578-c82a-41ff-9f0b-4fca120ff5a7">
+
+Edit the policy of role lambdaroletoaccessaccountb_bucket created and select inline policy as json 
+
+Copy the arn from accountB 
+
+<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/4113a6d5-0dd7-4caa-82a2-71657887b419">
 
 
 
@@ -18,36 +34,29 @@ Attach allowaccesstoaccountA_permision.json under policies and edit the trust re
 
 ## Create s3 Buckets in both the Accounts
 
+Create awssourcetargetbucketA in account A and awstargetbucketB in account B 
 
-## Create the IAM role to access S3 Bucket in same account 
-a. Create policy to access s3 bucket in same account 
-<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/55407d54-f6b3-489b-87ff-5ac7aa0895ff">
+In awstargetbucketB in account B under bucket policy paste IAMpolicyforACCB_Bucket.json
 
-
-3. Create the IAM role to access S3 Bucket in diff account 
-a. In account A create a role to access bucket in account b
-<img width="990"  src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/55407d54-f6b3-489b-87ff-5ac7aa0895ff">
-b. In account B create a role to allow cross account access
+<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/7efaabd8-e337-46af-a8af-eed4a586c1bd">
 
 
-c. edit the permisions of awstargetbucket
-<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/b5a0d7d1-3635-496c-a1ae-2d23e7727403">
+
+## Create a lambda function 
+
+<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/58b1a480-f8da-43cc-ace1-67ac3c6ab075">
+
+## Add trigger to lamda function object replication
+
+<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/6538f4b7-4231-47a0-ad05-27e861d73a7f">
+
+<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/9a9456e6-ec0b-4568-b4a1-c6d35e069ceb">
 
 
-5.Create lambda function
-<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/a549ac60-a227-44e5-9276-470dcdf36957">
-Add existing roles that we created for lambda
-<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/ee8abb96-bf78-4c73-b534-571f47a19a58">
+## Under code source paste lambdafunc.py
 
-6.Add trigger to lambda function 
-<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/04bc562d-b9b7-4489-9f8b-67c8df8209cd">
+<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/4b59cea8-b548-4a3f-b863-aeb213b161f1">
 
-
-7. Add trigger as source bucket
-<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/269a7f1b-ea0b-4974-9bd9-c32e14815f48">
-
-8. Add the lamda_func.py code
-  <img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/1c8b0a62-f124-48cb-a7c3-24c16faefdf0">
 
 
 
