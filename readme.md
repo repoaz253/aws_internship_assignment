@@ -17,7 +17,7 @@ c. edit the permisions of awstargetbucket
 
 
 5.Create lambda function
-https://github.com/repoaz253/aws_internship_assignment/assets/130156999/a549ac60-a227-44e5-9276-470dcdf36957
+<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/a549ac60-a227-44e5-9276-470dcdf36957">
 Add existing roles that we created for lambda
 <img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/ee8abb96-bf78-4c73-b534-571f47a19a58">
 
