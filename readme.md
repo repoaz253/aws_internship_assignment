@@ -18,17 +18,20 @@ Attach permission for amazons3fullaccess and after creation under policies and e
 Go to IAM>Roles>Create role
 Under Selected trusted entity select aws service
 Select service as lambda
-Under persmision add s3access and name the role as lambdaroletoaccessaccountb_bucket
+Under persmision add s3access and name the role as lambdarole
 
-<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/fd7f1578-c82a-41ff-9f0b-4fca120ff5a7">
+<img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/8f1fd6e3-cefd-4645-9e4d-596cd94af972">
 
-Edit the policy of role lambdaroletoaccessaccountb_bucket created and select inline policy as json 
+Edit the policy of role lambdarole created and select inline policy as json 
 
 Copy the arn from accountB 
 
 <img width="990" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/4113a6d5-0dd7-4caa-82a2-71657887b419">
 
 
+## To allow access to awssourcebucketa 
+add the policy from Role_access_acountA_bucket.json
+<img width="990" src=" src="https://github.com/repoaz253/aws_internship_assignment/assets/130156999/8458a1c3-3cce-4059-b836-6aed86af2565">
 
 
 
