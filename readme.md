@@ -3,7 +3,7 @@ AccountA has awssourcebucketa and AccountB has targetaccountb
 
 ## S3 bucket access from AccountB 
 
-In Account B, we need to create an IAM role that allows cross-account access to the S3 bucket. 
+In Account B, we need to create an IAM role that allows cross-account access to the S3 bucket so we have to selected trusted entity as aws account
 Go to IAM create a role accessaccounta
 Under Selected trusted entity select aws account
 Attach permission for amazons3fullaccess and after creation under policies and edit the trust relationship with trustrelation.json
