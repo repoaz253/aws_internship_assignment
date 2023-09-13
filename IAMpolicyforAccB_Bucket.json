@@ -4,7 +4,7 @@
         {
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::839883xxxxx:policy/accessaccounts3bucket"
+                "AWS": "arn:aws:iam::accountidA/lamdarole"
             },
             "Action": [
                 "s3:GetObject",

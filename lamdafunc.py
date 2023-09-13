@@ -1,25 +1,38 @@
+import os
 import boto3
-#boto3 is AWS SDK for aws services to interact with Python
 
 def lambda_handler(event, context):
-    source_bucket = 'awssourcebucketA'  
-    source_key = 'objectkeyawsSourceBucketA'      
-    target_bucket = 'awsTargetBucketB'  
-    target_key = 'objectkeyawstargetbucketB'     
+    source_bucket = 'SOURCE_BUCKET_NAME'
+    source_key = 'SOURCE_OBJECT_KEY'
+    destination_bucket = 'DESTINATION_BUCKET_NAME'
+    destination_key = 'DESTINATION_OBJECT_KEY'
+    
+    source_access_key = os.environ['SOURCE_ACCESS_KEY']
+    source_secret_key = os.environ['SOURCE_SECRET_KEY']
+    destination_access_key = os.environ['DESTINATION_ACCESS_KEY']
+    destination_secret_key = os.environ['DESTINATION_SECRET_KEY']
 
-    s3_source = boto3.client('s3', region_name='us-east-1', aws_access_key_id='objectkeyawsSourceBucketAid', aws_secret_access_key='objectkeyawsSourceBucketA')
-    s3_target = boto3.client('s3', region_name='us-east-1', aws_access_key_id='objectkeyawsTargetBucketBid', aws_secret_access_key='objectkeyawsTargetBucketB')
-#Exception handlling 
+    source_s3 = boto3.client('s3',
+        aws_access_key_id=source_access_key,
+        aws_secret_access_key=source_secret_key
+    )
+
+    destination_s3 = boto3.client('s3',
+        aws_access_key_id=destination_access_key,
+        aws_secret_access_key=destination_secret_key
+    )
     try:
-        s3_target.copy_object(CopySource={'Bucket': source_bucket, 'Key': source_key}, Bucket=target_bucket, Key=target_key)
+        response = destination_s3.copy_object(
+            CopySource={'Bucket': source_bucket, 'Key': source_key},
+            Bucket=destination_bucket,
+            Key=destination_key
+        )
         return {
             'statusCode': 200,
-            'body':'Object is copied successfully'
+            'body': f'Object copied successfully: {response}'
         }
-    
     except Exception as e:
-        error_message = f"There was an Error Copying: {e}"
         return {
             'statusCode': 500,
-            'body': error_message
+            'body': f'Error copying object: {str(e)}'
         }

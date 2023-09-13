@@ -4,7 +4,7 @@
 		{
 			"Effect": "Allow",
 			"Principal": {
-				"AWS": "arn:aws:iam::accountidA:root"
+				"AWS": "arn:aws:iam::accountidA:root/lamdarole"
 			},
 			"Action": "sts:AssumeRole",
 			"Condition": {}
